@@ -12,6 +12,8 @@ This repository provides a **community-maintained block list of AI-generated, lo
 These sites are often auto-generated, clickbait, or scraper content that clutters your browsing experience.  
 By using this list in Pi-hole, you can block these sites at the DNS level and improve your internet experience.
 
+The goal is therefor not to block sites that have ai or use partly use it, or sites like ChatGPT, but to block sites that are fully or mostly ai created.
+
 ---
 
 ##  Raw TXT File Link
