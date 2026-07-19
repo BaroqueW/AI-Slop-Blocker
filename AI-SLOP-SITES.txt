@@ -110,3 +110,4 @@ yourdailytrend.info
 plisio.net
 idrink.dk
 thewindowsclub.com
+{{share_text}}
