@@ -36,3 +36,30 @@ Tip: Click the link to open it in your browser, or copy it to add to Pi-hole.
 5. Click **Save**  
 6. Update Gravity:
 
+## How to add to the file from Android:
+
+HTTP Shortcuts → repository_dispatch → GitHub Action
+
+On your Android phone:
+
+Install HTTP Shortcuts.
+Create a shortcut that appears in the Android Share menu.
+Configure it to POST to:
+https://api.github.com/repos/<owner>/<repo>/dispatches
+
+Headers:
+
+Authorization: Bearer <PAT>
+Accept: application/vnd.github+json
+Content-Type: application/json
+
+Body:
+
+{
+  "event_type": "add-domain",
+  "client_payload": {
+    "url": "{{share_text}}"
+  }
+}
+
+({{share_text}} is the shared URL variable in HTTP Shortcuts, PAT your Personal Access Token)
