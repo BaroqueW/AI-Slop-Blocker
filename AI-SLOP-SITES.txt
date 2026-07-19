@@ -1,4 +1,4 @@
-###################################################################################
+#################################################################################################
 # THIS REPO IS FOR PI-HOLE
 # EVERYONE IS WELCOME TO ADD AI SLOP LINKS
 # UPDATE YOUR PI-HOLE USING:
@@ -6,8 +6,79 @@
 #
 # HELP THE COMMUNITY SEND DOMAINS HERE:
 # https://github.com/BaroqueW/AI-Slop-Blocker/issues
-###################################################################################
+################################################################################################
 
+#################################################################################################
+# From https://raw.githubusercontent.com/mklemmingen/StopTheToken/main/blocklist.txt
+#################################################################################################
+
+# Source: https://futurism.com/the-byte/gaming-sites-writers-ai-editor
+gamurs.group
+dotesports.com
+progameguides.com
+gamepur.com
+twinfinite.net
+primagames.com
+touchtapplay.com
+gamerjournalist.com
+attackofthefanboy.com
+wegotthiscovered.com
+themarysue.com
+destructoid.com
+operationsports.com
+pcinvasion.com
+upcomer.com
+escapistmagazine.com
+siliconera.com
+gameskinny.com
+
+# Source: https://www.thegamer.com/group-of-wow-redditors-trolled-news-website-zleague-ai-generated-articles-glorbo/
+thearenagroup.net
+
+# Source: https://futurism.com/sports-illustrated-ai-generated-writers
+# Source: https://futurism.com/gannett-promised-responsible-ai-bungling
+zleague.gg
+thestreet.com
+parade.com
+si.com
+
+# ai created personality "degomon" with spam websites
+devcodef1.com
+
+# lazy unchecked website creating articles about frequently asked questions of popular video games. See https://pupuweb.com/recommended-free-seo-toolkit-listing/ to find them actually saying after 4 pages that ChatGpT is a tool they use... exklusively and automatically
+pupuweb.com
+
+# tried contacing site admin via contact page. not possible. multiple featured writers are not at all editors as their linkedin. A lot of "articles" are missing huge chunks of information and repeats itself.
+pastchronicles.com
+
+# anything decido.com is ai-spam. "At the intersection between technology and content"
+
+FamilyAndPets.com
+YourMoneyMagic.com
+TrendyMatter.com
+SavvyDime.com
+HomeKnowledge.com
+HistoryAllDay.com
+
+# scrambled together website with huge output of same scheme articles about hot air
+
+knowledgesnacks.com
+
+# ai generated articles about madagascar, as displayed by incomplete website setup, no actual contact info, fake personas
+madagascarcharm.com
+
+# AI articles about Pets. "KIA" is an AI-Bot. Lots of repeated sentences. The Picture used for "Kia Joel" on the /about is of a man named "Rob Saenz".
+petssafekeeping.com
+
+# AI generated slop
+markaicode.com
+
+# ai-generated articles... about ai
+umatechnology.org
+
+#################################################################################################
+# From https://github.com/Jadde-1/AI-Slop-Blocker
+#################################################################################################
 
 numberanalytics.com
 24newsdaily.com
@@ -110,3 +181,7 @@ yourdailytrend.info
 plisio.net
 idrink.dk
 thewindowsclub.com
+
+#################################################################################################
+# From https://github.com/BaroqueW/AI-Slop-Blocker/ (this)
+#################################################################################################
