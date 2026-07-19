@@ -60,4 +60,5 @@ On your Android phone:
 > }
 > ```
 
-({{share_text}} is the shared URL variable in HTTP Shortcuts, PAT your Personal Access Token)
+PAT is your Personal Access Token setup in GitHub. You only need Contents RW persmissions.
+{{share_text}} is the shared variable in HTTP Shortcuts, you need to set it up in HTTP Shortcuts as a Global Variable, Accepting to received shared text (as Title + Text). When configuring the shortcut, you must select the variable from the curly braces menu, not type it in manually.
