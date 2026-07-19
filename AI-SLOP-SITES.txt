@@ -2,7 +2,7 @@
 # THIS REPO IS FOR PI-HOLE
 # EVERYONE IS WELCOME TO ADD AI SLOP LINKS
 # UPDATE YOUR PI-HOLE USING:
-# https://raw.githubusercontent.com/BaroqueW/AI-Slop-Blocker/AI-SLOP-SITES.txt
+# https://raw.githubusercontent.com/BaroqueW/AI-Slop-Blocker/refs/heads/main/AI-SLOP-SITES.txt
 #
 # HELP THE COMMUNITY SEND DOMAINS HERE:
 # https://github.com/BaroqueW/AI-Slop-Blocker/issues
