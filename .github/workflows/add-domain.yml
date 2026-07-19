@@ -21,25 +21,26 @@ jobs:
           python3 <<'PY'
           import json
           import os
+          import re
+          from urllib.parse import urlparse
 
           with open(os.environ["GITHUB_EVENT_PATH"]) as f:
               event = json.load(f)
 
           shared = event["client_payload"]["url"].strip()
 
-          lines = [l.strip() for l in shared.splitlines() if l.strip()]
+          # Find URL anywhere in the shared text
+          match = re.search(r'https?://\S+', shared)
 
-          title = ""
-          url = ""
-
-          # Expected Android share format:
-          # Title
-          # https://example.com/page
-          if len(lines) >= 2 and lines[-1].startswith(("http://", "https://")):
-              title = lines[0]
-              url = lines[-1]
+          if match:
+              url = match.group(0).rstrip(').,')
+              title = shared.replace(match.group(0), '').strip()
           else:
-              url = lines[0]
+              url = shared
+              title = ""
+
+          # Clean title separators
+          title = title.rstrip(" -|")
 
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               out.write(f"url={url}\n")
@@ -52,11 +53,14 @@ jobs:
 
           touch "$FILE"
 
-          if [ -n "${{ steps.page.outputs.title }}" ]; then
-            ENTRY="${{ steps.page.outputs.url }} # ${{ steps.page.outputs.title }}"
-          else
-            ENTRY="${{ steps.page.outputs.url }}"
-          fi
+          DOMAIN=$(python3 - <<'PY'
+          from urllib.parse import urlparse
+          import os
+          print(urlparse("${{ steps.page.outputs.url }}").hostname.replace("www.",""))
+          PY
+          )
+
+          ENTRY="$DOMAIN # ${{ steps.page.outputs.title }}"
 
           if ! grep -Fxq "$ENTRY" "$FILE"; then
             echo "$ENTRY" >> "$FILE"
