@@ -1,11 +1,5 @@
 # Pi-hole AI-Slop Block List
 
-[![GitHub issues](https://img.shields.io/github/issues/Jadde-1/PiHole-list)](https://github.com/Jadde-1/PiHole-list/issues)
-[![GitHub stars](https://img.shields.io/github/stars/Jadde-1/PiHole-list)](https://github.com/Jadde-1/PiHole-list/stargazers)
-[![Last commit](https://img.shields.io/github/last-commit/Jadde-1/PiHole-list)](https://github.com/Jadde-1/PiHole-list/commits/main)
-
----
-
 ##  Goal
 
 This repository provides a **community-maintained block list of AI-generated, low-effort websites ("AI-Slop")** for Pi-hole.  
@@ -21,7 +15,7 @@ The goal is therefor not to block sites that have ai or use partly use it, or si
 You can add this list directly to your Pi-hole as an Adlist by copying or clicking the link below:
 
 > ```
-> https://raw.githubusercontent.com/Jadde-1/PiHole-list/main/AI-SLOP-SITES.txt
+> https://github.com/BaroqueW/AI-Slop-Blocker/blob/main/AI-SLOP-SITES.txt
 > ```
 Tip: Click the link to open it in your browser, or copy it to add to Pi-hole.
 
@@ -38,28 +32,32 @@ Tip: Click the link to open it in your browser, or copy it to add to Pi-hole.
 
 ## How to add to the file from Android:
 
-HTTP Shortcuts → repository_dispatch → GitHub Action
+### HTTP Shortcuts → repository_dispatch → GitHub Action
 
 On your Android phone:
 
-Install HTTP Shortcuts.
-Create a shortcut that appears in the Android Share menu.
-Configure it to POST to:
-https://api.github.com/repos/<owner>/<repo>/dispatches
+- Install HTTP Shortcuts.
+- Create a shortcut that appears in the Android Share menu.
+- Configure it to POST to: https://api.github.com/repos/owner/repo/dispatches
 
-Headers:
+### Headers:
 
-Authorization: Bearer <PAT>
-Accept: application/vnd.github+json
-Content-Type: application/json
 
-Body:
+> ```
+> Authorization: Bearer <PAT>
+> Accept: application/vnd.github+json
+> Content-Type: application/json
+> ```
 
-{
-  "event_type": "add-domain",
-  "client_payload": {
-    "url": "{{share_text}}"
-  }
-}
+### Body:
+
+> ```
+> {
+>   "event_type": "add-domain",
+>   "client_payload": {
+>     "url": "{{share_text}}"
+>   }
+> }
+> ```
 
 ({{share_text}} is the shared URL variable in HTTP Shortcuts, PAT your Personal Access Token)
