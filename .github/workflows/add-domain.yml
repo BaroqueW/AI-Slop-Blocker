@@ -1,0 +1,78 @@
+name: Add domain
+
+on:
+  repository_dispatch:
+    types: [add-domain]
+
+permissions:
+  contents: write
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Parse shared text
+        id: page
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+
+          with open(os.environ["GITHUB_EVENT_PATH"]) as f:
+              event = json.load(f)
+
+          shared = event["client_payload"]["url"].strip()
+
+          lines = [l.strip() for l in shared.splitlines() if l.strip()]
+
+          title = ""
+          url = ""
+
+          # Expected Android share format:
+          # Title
+          # https://example.com/page
+          if len(lines) >= 2 and lines[-1].startswith(("http://", "https://")):
+              title = lines[0]
+              url = lines[-1]
+          else:
+              url = lines[0]
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"url={url}\n")
+              out.write(f"title={title}\n")
+          PY
+
+      - name: Append to list
+        run: |
+          FILE="AI-SLOP-SITES.txt"
+
+          touch "$FILE"
+
+          if [ -n "${{ steps.page.outputs.title }}" ]; then
+            ENTRY="${{ steps.page.outputs.url }} # ${{ steps.page.outputs.title }}"
+          else
+            ENTRY="${{ steps.page.outputs.url }}"
+          fi
+
+          if ! grep -Fxq "$ENTRY" "$FILE"; then
+            echo "$ENTRY" >> "$FILE"
+          fi
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add AI-SLOP-SITES.txt
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git commit -m "Add shared page"
+          git push
